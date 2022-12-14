@@ -1,3 +1,5 @@
+'use-strict'
+
 const STORAGE_KEY = 'memeDB'
 
 var gImgs = [
@@ -20,26 +22,61 @@ var gMeme= {
   selectedImgId: 5,
   selectedLineIdx: 0,
   lines: [
-          {
-            txt: 'I sometimes eat Falafel', size: 20,
-            align: 'left',
-            color: 'red'
-          }
-        ]
+        {
+          txt: 'one',
+          size: 20,
+          align: 'left',
+          color: 'red'
+        },
+        {
+          txt: 'two',
+          size: 20,
+          align: 'right',
+          color: 'blue'
+        },
+        {
+          txt: 'three',
+          size: 20,
+          align: 'left',
+          color: 'red'
+        },{
+          txt: 'four',
+          size: 20,
+          align: 'right',
+          color: 'blue'
+        },{
+          txt: 'five',
+          size: 20,
+          align: 'center',
+          color: 'red'
+        }
+          ]
 }
-      
-function _createMeme(title,price) {
-  const meme = {
-    selectedImgId: 5,
-  selectedLineIdx: 0,
-  lines: [
-          {
-            txt: 'I sometimes eat Falafel', size: 20,
-            align: 'left',
-            color: 'red'
-          }
-  ]
-  }
 
-  return meme
+function getMemeImg(imgIdx) {
+  const img = gImgs[imgIdx]
+  return img
 }
+
+// getMeme(gMeme)
+// function getMeme(meme) {
+//   const memeLines = meme.lines 
+//   return memeLines
+// }
+
+
+// function _createMeme(title,price) {
+//   const meme = {
+//     selectedImgId: 5,
+//   selectedLineIdx: 0,
+//   lines: [
+//           {
+//             txt: 'I sometimes eat Falafel', size: 20,
+//             align: 'left',
+//             color: 'red'
+//           }
+//   ]
+//   }
+
+//   return meme
+// }
