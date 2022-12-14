@@ -7,8 +7,31 @@
   <title>Meme Generator</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-  
-  <script src="js/main.js"></script>
+<body onload='onInit()'>
+  <header>
+    <div class="header-container">
+      <div class="logo">Coding Academy</div>
+      <nav class="header-nav">
+          <ul class="nav-list">
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Memes</a></li>
+                  <li><a href="#">About</a></li>
+          </ul>
+      </nav>
+      <!-- <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button> -->
+  </div>
+  </header>
+
+  <section class='image-gallery'>
+    <div class='search-container'></div>
+    <div class='img-container'></div>
+  </section>
+
+  <!-- <section class='meme-editor'>
+    <div class='canvas-container'>
+      <canvas id="my-canvas" height="450" width="450" onclick="draw(event)"></canvas>
+    </div>
+  </section> -->
+  <script src="js/memeController.js"></script>
 </body>
 </html>
