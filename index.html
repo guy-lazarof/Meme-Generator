@@ -21,20 +21,31 @@
       <!-- <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button> -->
   </div>
   </header>
-
+<button class='change-display' onclick='changeDisplay'></button>
   <section class='image-gallery'>
     <div class='search-container'></div>
-    <div class='img-container'></div>
+    <div class='grid-img-container'>
+      
+    </div>
   </section>
-<button onclick="onRenderMeme()">renderMeme</button>
+  <button onclick="renderMeme()">renderMeme</button>
+  <!-- test -->
+  <label for="text-change">add line</label>
+  <input type="text" id="text-change" placeholder='write your line...' onkeyup="onLineTextChange(this)">
+
+
   <section class='meme-editor'>
     <div class='canvas-container'>
       <canvas id="my-canvas" height="" width="" onclick="draw(event)"></canvas>
     </div>
   </section>
+  <img src="" alt="">
   <script src="js/services/storageService.js"></script>
   <script src="js/services/utilService.js"></script>
+  <script src="js/services/galleryService.js"></script>
   <script src="js/services/memeService.js"></script>
+  <script src="js/galleryController.js"></script>
   <script src="js/memeController.js"></script>
+  <script src="js/mainController.js"></script>
 </body>
 </html>

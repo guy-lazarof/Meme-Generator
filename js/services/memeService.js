@@ -59,13 +59,18 @@ function getMemeImg(meme) {
   return img
 }
 
-function getMeme() {
-  const meme = {
+function generateMeme() {
+  return {
     memeImg: getMemeImg(gMeme),
     memeText: gMeme.lines
   }
-  return meme
 
+}
+
+function setLineText(textNewValue) {
+  let line = gMeme.lines[gMeme.selectedLineIdx]
+  line.text = textNewValue
+  return line
 }
 // getMeme(gMeme)
 // function getMeme(meme) {

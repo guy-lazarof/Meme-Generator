@@ -5,10 +5,9 @@ let gCtx
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
-function onInit() {
+function onInitMemeController() {
   gElCanvas = document.querySelector('canvas')
   gCtx = gElCanvas.getContext('2d')
-  
   // addListeners()
   resizeCanvas()
   renderCanvas()
@@ -25,8 +24,8 @@ function renderCanvas() {
   gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height)
 }
 
-function onRenderMeme() {
-  const meme = getMeme()
+function renderMeme() {
+  const meme = generateMeme()
   const elImg = new Image()
   
   elImg.src = meme.memeImg.url
@@ -62,7 +61,12 @@ function drawText(memeLines) {
   });
 }
 
-
+function onLineTextChange(elLineText){
+  const lineTextValue = elLineText.value
+  setLineText(lineTextValue)
+  // renderCanvas()
+  renderMeme()
+}
 // function addListeners() {
 //   addMouseListeners()
 //   addTouchListeners()
