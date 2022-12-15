@@ -2,21 +2,21 @@
 
 function makeId(length = 3) {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-    var txt = ''
+    var text = ''
     for (var i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length))
+        text += possible.charAt(Math.floor(Math.random() * possible.length))
     }
-    return txt
+    return text
 }
 
 function makeLorem(wordCount = 100) {
     const words = ['Thesky','above','the','was','television','tuned','to','channel','.','All','happened','less','.','I','had','story','bit','people','and','all','happens','cases','time','it','was','different','.','It','was','sure','to','burn']
-    var txt = ''
+    var text = ''
     while (wordCount > 0) {
         wordCount--
-        txt += words[Math.floor(Math.random() * words.length)] + ' '
+        text += words[Math.floor(Math.random() * words.length)] + ' '
     }
-    return txt
+    return text
 }
 
 function getRandomIntInclusive(min, max) {

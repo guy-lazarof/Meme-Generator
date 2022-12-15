@@ -23,29 +23,29 @@ var gMeme= {
   selectedLineIdx: 0,
   lines: [
         {
-          txt: 'one',
+          text: 'one',
           size: 20,
           align: 'left',
           color: 'red'
         },
         {
-          txt: 'two',
+          text: 'two',
           size: 20,
           align: 'right',
           color: 'blue'
         },
         {
-          txt: 'three',
+          text: 'three',
           size: 20,
           align: 'left',
           color: 'red'
         },{
-          txt: 'four',
+          text: 'four',
           size: 20,
           align: 'right',
           color: 'blue'
         },{
-          txt: 'five',
+          text: 'five',
           size: 20,
           align: 'center',
           color: 'red'
@@ -53,11 +53,20 @@ var gMeme= {
           ]
 }
 
-function getMemeImg(imgIdx) {
-  const img = gImgs[imgIdx]
+function getMemeImg(meme) {
+  const img = gImgs[meme.selectedImgId]
+  console.log('img:', img)
   return img
 }
 
+function getMeme() {
+  const meme = {
+    memeImg: getMemeImg(gMeme),
+    memeText: gMeme.lines
+  }
+  return meme
+
+}
 // getMeme(gMeme)
 // function getMeme(meme) {
 //   const memeLines = meme.lines 
@@ -71,7 +80,7 @@ function getMemeImg(imgIdx) {
 //   selectedLineIdx: 0,
 //   lines: [
 //           {
-//             txt: 'I sometimes eat Falafel', size: 20,
+//             text: 'I sometimes eat Falafel', size: 20,
 //             align: 'left',
 //             color: 'red'
 //           }

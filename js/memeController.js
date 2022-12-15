@@ -26,14 +26,13 @@ function renderCanvas() {
 }
 
 function onRenderMeme() {
-  
-  const memeImg = getMemeImg(3)
+  const meme = getMeme()
   const elImg = new Image()
   
-  elImg.src = memeImg.url
+  elImg.src = meme.memeImg.url
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    drawText(gMeme.lines)
+    drawText(meme.memeText)
   }
 }
 
@@ -58,8 +57,8 @@ function drawText(memeLines) {
       lineY = gElCanvas.height/2
       lineX = gElCanvas.width/2
     }
-    gCtx.fillText(memeLine.txt, lineX,lineY)
-    gCtx.strokeText(memeLine.txt, lineX, lineY)
+    gCtx.fillText(memeLine.text, lineX,lineY)
+    gCtx.strokeText(memeLine.text, lineX, lineY)
   });
 }
 
