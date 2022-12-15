@@ -14,6 +14,7 @@ function renderGallery() {
 function onImgSelect(elImgSelect) {
   const imgSelectId = elImgSelect.dataset.id
   setMemeImg(imgSelectId)
+  renderMeme()
   console.log('imgSelectId:', imgSelectId)
   console.log('gMeme:', gMeme)
 }
