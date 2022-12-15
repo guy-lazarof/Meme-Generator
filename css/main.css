@@ -30,8 +30,12 @@ canvas {
   grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
   gap: 5px;
   background-color: white;
+  height: 100%
 }
 .img {
   width: 70px;
-  height: 70px;
+}
+
+.img > * {
+  width: 100%;
 }

@@ -5,10 +5,17 @@ function onInitGalleryController() {
 }
 
 function renderGallery() {
-  var gallery = gGallery
-  var strHtmls = gallery.map((img, idx) => `<div class="img img${idx}"><img src='${img}' style="width:100%"></div>`)
+  var gallery = getAllImgs()
+  var strHtmls = gallery.map(img => `<img data-id='${img.id}' class="img img${img.id}" src='${img.url}' onclick="onImgSelect(this)">`)
   document.querySelector('.grid-img-container').innerHTML = strHtmls.join('')
   console.log(strHtmls);
+}
+
+function onImgSelect(elImgSelect) {
+  const imgSelectId = elImgSelect.dataset.id
+  setMemeImg(imgSelectId)
+  console.log('imgSelectId:', imgSelectId)
+  console.log('gMeme:', gMeme)
 }
 
 // function renderBooks () {
