@@ -13,10 +13,13 @@ function renderGallery() {
 
 function onImgSelect(elImgSelect) {
   const imgSelectId = elImgSelect.dataset.id
+  // document.querySelector('.meme-editor').hidden = false
+  // document.querySelector('.image-gallery').hidden = true
+  document.querySelector('.image-gallery').style.display = "none"
+  document.querySelector('.meme-editor').style.display = "block"
+  resizeCanvas()
   setMemeImg(imgSelectId)
   renderMeme()
-  console.log('imgSelectId:', imgSelectId)
-  console.log('gMeme:', gMeme)
 }
 
 // function renderBooks () {

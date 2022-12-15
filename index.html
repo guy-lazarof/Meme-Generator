@@ -21,20 +21,19 @@
       <!-- <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button> -->
   </div>
   </header>
-<button class='change-display' onclick='changeDisplay'></button>
+
   <section class='image-gallery'>
     <div class='search-container'></div>
     <div class='grid-img-container'>
       
     </div>
   </section>
-  <button onclick="renderMeme()">renderMeme</button>
-  <!-- test -->
-  <label for="text-change">add line</label>
-  <input type="text" id="text-change" placeholder='write your line...' onkeyup="onLineTextChange(this)">
-
-
+  
+  
   <section class='meme-editor'>
+    <button onclick="renderMeme()">renderMeme</button>
+    <label for="text-change">add line</label>
+    <input type="text" id="text-change" placeholder='write your line...' onkeyup="onLineTextChange(this)">
     <div class='canvas-container'>
       <canvas id="my-canvas" height="" width="" onclick="draw(event)"></canvas>
     </div>

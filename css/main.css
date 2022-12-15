@@ -22,6 +22,10 @@ canvas {
   background-color: rgb(136, 26, 26);
 }
 
+.meme-editor{
+  display: none;
+}
+
 .grid-img-container{
   display: grid;
   margin: auto;
