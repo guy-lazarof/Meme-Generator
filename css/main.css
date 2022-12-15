@@ -7,6 +7,10 @@ body{
   
 }
 
+.header-container{
+  background-color: rgb(229, 229, 214);
+}
+
 .canvas-container {
   background-color: rgb(42, 91, 165);
   margin: 0 auto;
@@ -23,7 +27,7 @@ canvas {
 }
 
 .meme-editor{
-  display: none;
+  /* display: none; */
 }
 
 .grid-img-container{

@@ -64,9 +64,19 @@ function drawText(memeLines) {
 function onLineTextChange(elLineText){
   const lineTextValue = elLineText.value
   setLineText(lineTextValue)
-  // renderCanvas()
   renderMeme()
 }
+
+function toggleMemeEditorSectionDisplay() {
+  const elMemeEditorSection = document.querySelector('.meme-editor')
+  elMemeEditorSection.hidden === true ? elMemeEditorSection.hidden = false : elMemeEditorSection.hidden = true
+}
+
+function onGalleryBtn() {
+  toggleImageGallerySectionDisplay()
+  toggleMemeEditorSectionDisplay()
+}
+
 // function addListeners() {
 //   addMouseListeners()
 //   addTouchListeners()

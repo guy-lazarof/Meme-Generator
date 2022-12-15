@@ -15,12 +15,19 @@ function onImgSelect(elImgSelect) {
   const imgSelectId = elImgSelect.dataset.id
   // document.querySelector('.meme-editor').hidden = false
   // document.querySelector('.image-gallery').hidden = true
-  document.querySelector('.image-gallery').style.display = "none"
-  document.querySelector('.meme-editor').style.display = "block"
+  toggleImageGallerySectionDisplay()
+  toggleMemeEditorSectionDisplay()
   resizeCanvas()
   setMemeImg(imgSelectId)
   renderMeme()
 }
+
+function toggleImageGallerySectionDisplay() {
+  const elImageGallerySection = document.querySelector('.image-gallery')
+  elImageGallerySection.hidden === true ? elImageGallerySection.hidden = false : elImageGallerySection.hidden = true
+}
+
+
 
 // function renderBooks () {
 //   var books = gBooks

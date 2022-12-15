@@ -13,7 +13,7 @@
       <div class="logo">Coding Academy</div>
       <nav class="header-nav">
           <ul class="nav-list">
-                  <li><a href="#">Gallery</a></li>
+                  <li ><a href="#" onclick="onGalleryBtn()" >Gallery</a></li>
                   <li><a href="#">Memes</a></li>
                   <li><a href="#">About</a></li>
           </ul>
@@ -30,7 +30,7 @@
   </section>
   
   
-  <section class='meme-editor'>
+  <section class='meme-editor' hidden>
     <button onclick="renderMeme()">renderMeme</button>
     <label for="text-change">add line</label>
     <input type="text" id="text-change" placeholder='write your line...' onkeyup="onLineTextChange(this)">
