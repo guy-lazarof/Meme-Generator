@@ -11,40 +11,7 @@ function renderGallery() {
   console.log(strHtmls);
 }
 
-function onImgSelect(elImgSelect) {
-  const imgSelectId = elImgSelect.dataset.id
-  // document.querySelector('.meme-editor').hidden = false
-  // document.querySelector('.image-gallery').hidden = true
-  toggleImageGallerySectionDisplay()
-  toggleMemeEditorSectionDisplay()
-  resizeCanvas()
-  setMemeImg(imgSelectId)
-  renderMeme()
+function toggleImgGallerySectionDisplay() {
+  const elImgGallerySection = document.querySelector('.img-gallery')
+  elImgGallerySection.hidden === true ? elImgGallerySection.hidden = false : elImgGallerySection.hidden = true
 }
-
-function toggleImageGallerySectionDisplay() {
-  const elImageGallerySection = document.querySelector('.image-gallery')
-  elImageGallerySection.hidden === true ? elImageGallerySection.hidden = false : elImageGallerySection.hidden = true
-}
-
-
-
-// function renderBooks () {
-//   var books = gBooks
-//   var strHtmls = books.map(book => `<tr>
-//   <td class='td book-id'>${book.id}</td>
-//   <td class='td book-title'>${book.title}</td>
-//   <td class='td book-price'>${book.price}</td>
-//   <td class='td book-rate'>${book.rate}</td>
-//   <td class='td actions'><button class='btn deleteBtn' data-trans='delete-btn' onclick="onDeleteBook('${book.id}')"
-//   '></button>
-//   <button class='btn updateBtn' data-trans='update-btn' onclick="onUpdateBook('${book.id}')"
-//   '></button>
-//   <button class='btn readBtn' data-trans='read-btn' onclick="onReadBook('${book.id}')"
-//   '></button>
-//   </td>
-// </tr> 
-// `)
-// document.querySelector('.table-body').innerHTML = strHtmls.join('')
-
-// }

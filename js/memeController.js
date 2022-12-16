@@ -72,11 +72,6 @@ function toggleMemeEditorSectionDisplay() {
   elMemeEditorSection.hidden === true ? elMemeEditorSection.hidden = false : elMemeEditorSection.hidden = true
 }
 
-function onGalleryBtn() {
-  toggleImageGallerySectionDisplay()
-  toggleMemeEditorSectionDisplay()
-}
-
 // function addListeners() {
 //   addMouseListeners()
 //   addTouchListeners()

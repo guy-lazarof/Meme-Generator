@@ -60,10 +60,35 @@ body{
   color: black;
 }
 
-/* .header-nav a.active {
-  background-color: #04AA6D;
-  color: white;
-} */
+.search-container{
+  display: flex;
+  flex-direction: row;
+}
+
+.search-input{
+  float: left;
+  border-radius: 10em;
+  width: 40%;
+  background-color: rgb(133, 252, 238);;
+  margin: 20px;
+  padding: 6px;
+  border: 1px solid rgb(76, 90, 102);
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.search-button {
+  background: transparent;
+  border: none;
+  outline: none;
+  margin-left: -60px;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+}
 
 .canvas-container {
   background-color: rgb(42, 91, 165);
@@ -84,15 +109,20 @@ canvas {
   /* display: none; */
 }
 
+.img-gallery{
+  background-color: rgb(79, 84, 107);
+  border-radius: 10px;
+  width: 95vw;
+  margin: auto;
+}
+
 .grid-img-container{
   display: grid;
-  margin: auto;
-  width: 95vw;
-  border-radius: 10px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
-  background-color: rgb(79, 84, 107);
-  height: 100%
+  width: 92%;
+  height: 100%;
+  margin: auto;
 }
 .img {
   width: 100%;
