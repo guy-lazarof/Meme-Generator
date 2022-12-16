@@ -23,6 +23,10 @@ body{
   .logo{
   }
   
+  .header-nav{
+    width: 100%;
+  
+}
   .logo img{
     width: 50%;
     border-radius: 50%;
@@ -30,10 +34,6 @@ body{
     margin-left: 20px;
   }
   
-  .header-nav{
-    width: 100%;
-  
-}
 
   .header-nav a{
     float: right;
@@ -81,12 +81,6 @@ body{
   border: none;
   outline: none;
   margin-left: -60px;
-}
-
-.search-button img {
-  width: 20px;
-  height: 20px;
-  object-fit: cover;
 }
 
 .meme-editor{
@@ -188,7 +182,7 @@ canvas {
   border-radius: 10em;
   padding: 10px;
   width: 70%;
-  height: 70%;
+  height: 2em;
 }
 
 .line-editor{
@@ -212,23 +206,38 @@ canvas {
 }
 
 @media (max-width: 600px){
+  .logo img{
+    width: 23%;
+    border-radius: 50%;
+    padding-top: 5px;
+    margin-left: 20px;
+  }
+  
+
+  .header-nav a{
+    float: right;
+  color: #271f1f;
+  text-align: center;
+  padding: 10px 10px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  margin-right: 30px;
+  margin-left: -20px;
+}
   .grid-meme-container {
   grid-template-rows: 350px 1fr 1fr 1fr;
-  grid-template-columns: 1.2fr 1fr;
-  /* height: 50%; */
+  grid-template-columns: 1fr 1fr;
+  margin:10px auto;
   grid-template-areas: 
-        /* "meme"
-        "text-editor"
-        "line-editor"
-        "font-setting"
-        "align-setting"
-        "stickers"
-        "media"; */
         "meme              meme"
         "text-editor      text-editor"
         "line-editor      stickers"
         "font-setting      stickers"
         "align-setting      media";
         
+  }
+  .btn > img{
+    height: 30px;
   }
 }
