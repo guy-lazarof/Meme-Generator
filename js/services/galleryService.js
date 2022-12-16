@@ -2,7 +2,7 @@
 
 var gImgs = [
   {
-    id: 0, url: 'img/1.jpg', keywords: ['funny', 'cat']
+    id: 0, url: 'img/1.jpg', keywords: ['funny', 'man']
   }, {
     id: 1, url: 'img/2.jpg', keywords: ['cute', 'dog']
   }, {
