@@ -42,12 +42,14 @@ body{
   padding: 14px 16px;
   text-decoration: none;
   font-size: 20px;
-  margin-right: 15px;
+  font-weight: 600;
+  margin-right: 30px;
+  margin-left: -20px;
 }
 
 .header-nav a:hover{
-  background-color: #ddd;
-  color: black;
+  color: rgb(208, 204, 204);
+
 }
 
 .search-container{
@@ -59,12 +61,19 @@ body{
   float: left;
   border-radius: 10em;
   width: 50%;
-  background-color: rgb(133, 252, 238);;
+  background-color: rgb(46, 49, 63);
+  background-color: rgb(3, 181, 133);
   margin: 20px;
   padding: 6px;
   border: 1px solid rgb(76, 90, 102);
   margin-right: 16px;
   font-size: 17px;
+  color: rgb(36, 38, 52);
+}
+
+.search-input::placeholder{
+  color: rgb(36, 38, 52);
+
 }
 
 .search-button {
@@ -204,16 +213,22 @@ canvas {
 
 @media (max-width: 600px){
   .grid-meme-container {
-  grid-template-rows: 6fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr;
+  grid-template-rows: 350px 1fr 1fr 1fr;
+  grid-template-columns: 1.2fr 1fr;
+  /* height: 50%; */
   grid-template-areas: 
-        "meme"
+        /* "meme"
         "text-editor"
         "line-editor"
         "font-setting"
         "align-setting"
         "stickers"
-        "media";
+        "media"; */
+        "meme              meme"
+        "text-editor      text-editor"
+        "line-editor      stickers"
+        "font-setting      stickers"
+        "align-setting      media";
         
   }
 }
