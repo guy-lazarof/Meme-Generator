@@ -1,5 +1,6 @@
 'use-strict'
 
+var gFilterBy = { memeKeywords: '', }
 var gImgs = [
   {
     id: 0, url: 'img/1.jpg', keywords: ['funny', 'man']
@@ -43,4 +44,21 @@ var gImgs = [
 function getAllImgs() {
   const allImgs = gImgs
   return allImgs;
+}
+
+function getFilterBy() {
+  const filterBy = gFilterBy.memeKeywords
+  return filterBy;
+}
+
+function getFilterImgs() {
+  var gImgs = getAllImgs()
+  var filterImgs = gImgs.filter(img => img.keywords.find((keyword) => {
+    if (keyword.includes(gFilterBy.memeKeywords)){return true}
+  }))
+  return filterImgs
+}
+function setGalleryFilter(filterBy) {
+  gFilterBy.memeKeywords = filterBy
+  
 }

@@ -6,8 +6,14 @@ function onInit() {
 }
 
 function onGalleryBtn() {
-  toggleImgGallerySectionDisplay()
-  toggleMemeEditorSectionDisplay()
+  const elImgGallerySection = document.querySelector('.img-gallery')
+  if (elImgGallerySection.hidden === true ) {
+    toggleImgGallerySectionDisplay()
+    toggleMemeEditorSectionDisplay()
+  }
+  else {
+    return
+  }
 }
 
 function onImgSelect(elImgSelect) {

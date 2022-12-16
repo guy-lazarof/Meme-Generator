@@ -58,7 +58,7 @@ body{
 .search-input{
   float: left;
   border-radius: 10em;
-  width: 40%;
+  width: 50%;
   background-color: rgb(133, 252, 238);;
   margin: 20px;
   padding: 6px;
@@ -88,6 +88,7 @@ body{
   border-radius: 10px;
   width: 95vw;
   margin: auto;
+  padding-bottom: 15px;
 }
 
 .grid-img-container{

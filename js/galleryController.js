@@ -1,7 +1,5 @@
 'use-strict'
 
-var gFilterBy = { memeKeywords: '', }
-
 function onInitGalleryController() {
   renderGallery()
 }
@@ -18,23 +16,28 @@ function toggleImgGallerySectionDisplay() {
 }
 
 function onKeyUpSearch() {
+  changeSearchInputIcon()
   setTimeout(() => {
     const searchStr = document.querySelector('.search-input').value
-      setMemeFilter(searchStr)
+      setGalleryFilter(searchStr.toLowerCase())
       renderGallery()
       document.querySelector('.search-input').value = searchStr
   }, 500);
 }
-
-function setMemeFilter(filterBy) {
-  gFilterBy.memeKeywords = filterBy
-  
+function changeSearchInputIcon() {
+  const content = document.querySelector('.search-input')
+  const searchIcon = document.querySelector('.search-button')
+  if (content.value !== '') {
+    searchIcon.innerText = '✖️'
+  }
 }
 
-function getFilterImgs() {
-  var gImgs = getAllImgs()
-  var filterImgs = gImgs.filter(img => img.keywords.find((keyword) => {
-    if (keyword.includes(gFilterBy.memeKeywords)){return true}
-  }))
-  return filterImgs
+
+function onDeleteSearchBarContent() {
+  const content = document.querySelector('.search-input')
+  const searchIcon = document.querySelector('.search-button')
+  content.value = ''
+  searchIcon.innerText = '🔎'
+  setGalleryFilter('')
+  renderGallery()
 }
