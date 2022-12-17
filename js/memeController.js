@@ -243,18 +243,6 @@ function onTextAlignRight() {
   renderMeme()
 }
 
-function onShareMeme(){
-  
-}
-
-function onUploadImg(){
-  
-}
-
-function onDownloadMeme(){
-  
-}
-
 
 function onImgInput(ev) {
   loadImageFromInput(ev, renderImg)

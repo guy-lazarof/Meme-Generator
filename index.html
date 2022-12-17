@@ -22,6 +22,10 @@
     <div class='search-container'>
       <input type="text" placeholder='Search meme...' class='search-input' onkeyup="onKeyUpSearch()" >
       <button class="search-button" onclick="onDeleteSearchBarContent()">🔎</button>
+      <div class='file-upload'>
+        <label for="file-input"><img class='file-input-img' src="img/memeBtns/file-input.png"></label>
+        <input id='file-input' type="file" class="file-input btn" name="image" onchange="onImgInput(event)"  />
+      </div>
     </div>
     <div class='grid-img-container'>
     </div>
@@ -33,10 +37,10 @@
     <div class='canvas-container'>
       <canvas id="my-canvas" height="" width="" onclick="draw(event)"></canvas>
     </div>
-        <input type="text" class='text-editor' placeholder='Add new line :)'>
-
-        <div class='line-editor'>
-          <button class='btn add-line' onclick='onAddLine()'><img src="img/memeBtns/addLine.png"></button>
+    <input type="text" class='text-editor' placeholder='Add new line :)'>
+    
+    <div class='line-editor'>
+      <button class='btn add-line' onclick='onAddLine()'><img src="img/memeBtns/addLine.png"></button>
           <button class='btn delete-line' onclick='onDeleteSelectedLine()'><img src="img/memeBtns/deleteLine.png"></button>
         <button class='btn change-line' onclick='onSelectLine()'><img src="img/memeBtns/changeLine.png"></button>
         </div>
@@ -62,13 +66,11 @@
 
       <div class='media'>
         <button class='btn upload-img' onclick="onUploadImg()"><img src="img/memeBtns/upload.png"></button>
-        <button class='btn download-meme' onclick='onDownloadMeme()'><a href="#" onclick="downloadCanvas(this)" download="my-img">Download</a></button>
+        <a href="#" onclick="downloadCanvas(this)" download="my-img" class='btn download'><img src="img/memeBtns/download.png"></a>
+        </button>
         
       </div>
 
-      <div class='file-upload'>
-        <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)"  />
-      </div>
     </div>
   </section>
 
