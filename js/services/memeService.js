@@ -83,3 +83,15 @@ function textAlignCenter() {
 function textAlignRight() {
   gMeme.lines[gMeme.selectedLineIdx -1].align = 'right'
 }
+
+// function isLineRectClicked(clickedPos) {
+//   if (gMeme.lines.length === 2 && ){
+
+//   }
+
+//   // const { pos } = gCircle
+//   // Calc the distance between two dots
+//   // const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
+//   //If its smaller then the radius of the circle we are inside
+//   // return distance <= gCircle.size
+// }

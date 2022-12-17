@@ -202,6 +202,16 @@ canvas {
   grid-area:file-upload ;
 }
 
+.file-upload > input{
+  display: inline;
+  background-color: dodgerblue;
+
+  color: dodgerblue;
+  width: fit-content;
+  padding: 10px;
+  margin: 5px
+}
+
 @media (max-width: 670px){
   .logo img{
     width: 23%;

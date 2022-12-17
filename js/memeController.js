@@ -31,6 +31,42 @@ function onInitMemeController() {
 //   gElCanvas.addEventListener('touchend', onUp)
 // }
 
+// function onDown(ev) {
+//   // Get the ev pos from mouse or touch
+//   const lines = getGMeme().lines
+//   const pos = getEvPos(ev)
+//   if () return
+
+//   setCircleDrag(true)
+//   //Save the pos we start from
+//   gStartPos = pos
+//   document.body.style.cursor = 'grabbing'
+// }
+
+function getEvPos(ev) {
+  // Gets the offset pos , the default pos
+  let pos = {
+      x: ev.offsetX,
+      y: ev.offsetY,
+  }
+  // Check if its a touch ev
+  if (TOUCH_EVS.includes(ev.type)) {
+      console.log('ev:', ev)
+      //soo we will not trigger the mouse ev
+      ev.preventDefault()
+      //Gets the first touch point
+      ev = ev.changedTouches[0]
+      //Calc the right pos according to the touch screen
+      pos = {
+          x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
+          y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
+      }
+  }
+  return pos
+}
+
+// isLineRectClicked(clickedPos)
+
 function resizeCanvas() {
   const elContainer = document.querySelector('.canvas-container')
   gElCanvas.width = (elContainer.offsetWidth) 
@@ -64,7 +100,7 @@ function drawText(memeLines) {
     gCtx.font = `${memeLine.size + 20}px arial`;
     gCtx.textAlign = memeLine.align
     gCtx.textBaseline = 'middle'
-
+    
     if (lineIdx === 0){
       lineY = 50
       lineX = gElCanvas.width/2
@@ -78,6 +114,25 @@ function drawText(memeLines) {
     gCtx.fillText(memeLine.text, lineX,lineY)
     gCtx.strokeText(memeLine.text, lineX, lineY)
   });
+}
+
+function drawTextRect(idx) {
+  gCtx.globalAlpha = 0.2;
+  gCtx.fillStyle = 'white'
+  let rectPos = []
+  if (idx === 0) {
+    gCtx.fillRect(0, 20, gElCanvas.width, 60)
+    rectPos = [0, 20, gElCanvas.width, 60]
+  }else if(idx === 1){
+    gCtx.fillRect(0, gElCanvas.height - 80, gElCanvas.width, 60)
+    rectPos = [0, gElCanvas.height - 80, gElCanvas.width, 60]
+  }else if(idx > 1){
+    gCtx.fillRect(0, gElCanvas.height / 2 - 30, gElCanvas.width, 60)
+    rectPos = [0, gElCanvas.height / 2 - 30, gElCanvas.width, 60]
+  }
+  gCtx.globalAlpha = 1; 
+  
+  return rectPos
 }
 
 function drawSticker1(offsetX,offsetY) {
@@ -133,22 +188,6 @@ function draw(ev) {
         drawSticker4(offsetX, offsetY)
           break
   }
-}
-
-function drawTextRect(idx) {
-      gCtx.globalAlpha = 0.2;
-      gCtx.fillStyle = 'white'
-      
-      if (idx ===0) {
-        gCtx.fillRect(0, 20, gElCanvas.width, 60)
-      }else if(idx ===1){
-        gCtx.fillRect(0, gElCanvas.height-80, gElCanvas.width, 60)
-      }else if(idx > 1){
-        gCtx.fillRect(0, gElCanvas.height/2 -30, gElCanvas.width, 60)
-      }
-      gCtx.globalAlpha = 1;
-  
-
 }
 
 function toggleMemeEditorSectionDisplay() {
@@ -230,6 +269,7 @@ function loadImageFromInput(ev, onImageReady) {
   }
 
   reader.readAsDataURL(ev.target.files[0])
+  
 }
 
 function renderImg(img) {
