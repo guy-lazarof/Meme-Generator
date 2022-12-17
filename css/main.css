@@ -163,6 +163,13 @@ canvas {
   height: 40px;
 }
 
+.sticker{
+  border-radius: 10px;
+}
+
+.sticker> img{
+  height: 30px;
+}
 
 .text-editor{
   grid-area: text-editor;

@@ -2,6 +2,7 @@
 
 let gElCanvas
 let gCtx
+let gCurrShape = ''
 
 const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
@@ -61,6 +62,63 @@ function drawText(memeLines) {
     gCtx.fillText(memeLine.text, lineX,lineY)
     gCtx.strokeText(memeLine.text, lineX, lineY)
   });
+}
+
+function drawSticker1(offsetX,offsetY) {
+  const elImg = new Image() // Create a new html img element
+  elImg.src = 'img/stickers/sticker1.jpg' // Send a network req to get that
+  elImg.onload = () => {
+      gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+  }
+}
+
+function drawSticker2(offsetX,offsetY) {
+  const elImg = new Image() // Create a new html img element
+  elImg.src = 'img/stickers/sticker2.jpg' // Send a network req to get that
+  elImg.onload = () => {
+    gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+  }
+}
+
+function drawSticker3(offsetX,offsetY) {
+  const elImg = new Image() // Create a new html img element
+  elImg.src = 'img/stickers/sticker3.jpg' // Send a network req to get that
+  elImg.onload = () => {
+    gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+  }
+}
+
+function drawSticker4(offsetX,offsetY) {
+  const elImg = new Image() // Create a new html img element
+  elImg.src = 'img/stickers/sticker4.jpg' // Send a network req to get that
+  elImg.onload = () => {
+      gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+  }
+}
+
+function setShape(shape) {
+  gCurrShape = shape
+}
+
+function draw(ev) {
+  const { offsetX, offsetY } = ev
+  console.log('offsetX, offsetY:', offsetX, offsetY)
+
+  switch (gCurrShape) {
+      case 'sticker1':
+      drawSticker1(offsetX, offsetY)
+      console.log(gCurrShape);
+          break
+      case 'sticker2':
+        drawSticker2(offsetX, offsetY)
+          break
+      case 'sticker3':
+        drawSticker3(offsetX, offsetY)
+          break
+      case 'sticker4':
+        drawSticker4(offsetX, offsetY)
+          break
+  }
 }
 
 // function onLineTextChange(elLineText){
