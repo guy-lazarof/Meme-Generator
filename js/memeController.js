@@ -14,6 +14,23 @@ function onInitMemeController() {
   renderCanvas()
 }
 
+// function addListeners() {
+//   addMouseListeners()
+//   addTouchListeners()
+// }
+
+// function addMouseListeners() {
+//   gElCanvas.addEventListener('mousemove', onMove)
+//   gElCanvas.addEventListener('mousedown', onDown)
+//   gElCanvas.addEventListener('mouseup', onUp)
+// }
+
+// function addTouchListeners() {
+//   gElCanvas.addEventListener('touchmove', onMove)
+//   gElCanvas.addEventListener('touchstart', onDown)
+//   gElCanvas.addEventListener('touchend', onUp)
+// }
+
 function resizeCanvas() {
   const elContainer = document.querySelector('.canvas-container')
   gElCanvas.width = (elContainer.offsetWidth) 
@@ -64,32 +81,32 @@ function drawText(memeLines) {
 }
 
 function drawSticker1(offsetX,offsetY) {
-  const elImg = new Image() // Create a new html img element
-  elImg.src = 'img/stickers/sticker1.jpg' // Send a network req to get that
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker1.jpg'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX, offsetY,50,50)
   }
 }
 
 function drawSticker2(offsetX,offsetY) {
-  const elImg = new Image() // Create a new html img element
-  elImg.src = 'img/stickers/sticker2.jpg' // Send a network req to get that
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker2.jpg'
   elImg.onload = () => {
     gCtx.drawImage(elImg,offsetX, offsetY,50,50)
   }
 }
 
 function drawSticker3(offsetX,offsetY) {
-  const elImg = new Image() // Create a new html img element
-  elImg.src = 'img/stickers/sticker3.jpg' // Send a network req to get that
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker3.jpg'
   elImg.onload = () => {
     gCtx.drawImage(elImg,offsetX, offsetY,50,50)
   }
 }
 
 function drawSticker4(offsetX,offsetY) {
-  const elImg = new Image() // Create a new html img element
-  elImg.src = 'img/stickers/sticker4.jpg' // Send a network req to get that
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker4.jpg'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX, offsetY,50,50)
   }
@@ -133,56 +150,6 @@ function drawTextRect(idx) {
   
 
 }
-
-// function drawTextBorder(ev) {
-
-//   ev.stopPropagation()
-  
-//   const { offsetX, offsetY, pageX, pageY } = ev
-//   const clickedStar = gStars.find(star => {
-//       return (
-//           offsetX >= star.x && offsetX <= star.x + BAR_WIDTH &&
-//           offsetY >= star.y
-//       )
-//   })
-
-//   if (clickedStar) {
-//       const { name, rate } = clickedStar
-//       openModal(name, rate, pageX, pageY)
-//   } else {
-//       closeModal()
-//   }
-
-
-
-// }
-
-  // const star = getGMeme()
-  // if (star.selectedLineIdx === 1) {
-  //   gCtx.globalAlpha = 0.4;
-  //   gCtx.fillStyle = 'white'
-  //   gCtx.fillRect(0, 20, gElCanvas.width,60 )
-  //   gCtx.globalAlpha = 1.0;
-  // }
-  // if (star.selectedLineIdx === 2) {
-  //   gCtx.globalAlpha = 0.4;
-  //   gCtx.fillStyle = 'white'
-  //   gCtx.fillRect(0, gElCanvas.height-80,gElCanvas.width, 60 )
-  //   gCtx.globalAlpha = 1.0;
-  // }
-  // if (star.selectedLineIdx > 2) {
-  //   gCtx.globalAlpha = 0.4;
-  //   gCtx.fillStyle = 'white'
-  //   gCtx.fillRect(0, gElCanvas.height/2 - 30, gElCanvas.width,60 )
-  //   gCtx.globalAlpha = 1.0;
-  // }
-
-
-// function onLineTextChange(elLineText){
-//   const lineTextValue = elLineText.value
-//   setLineText(lineTextValue)
-//   renderMeme()
-// }
 
 function toggleMemeEditorSectionDisplay() {
   const elMemeEditorSection = document.querySelector('.meme-editor')
@@ -256,20 +223,16 @@ function onImgInput(ev) {
 
 function loadImageFromInput(ev, onImageReady) {
   const reader = new FileReader()
-  // After we read the file
   reader.onload = (event) => {
-      let img = new Image() // Create a new html img element
-      img.src = event.target.result // Set the img src to the img file we read
-      // Run the callBack func, To render the img on the canvas
+      let img = new Image()
+      img.src = event.target.result
       img.onload = () => onImageReady(img)
   }
 
-  reader.readAsDataURL(ev.target.files[0]) // Read the file we picked
-
+  reader.readAsDataURL(ev.target.files[0])
 }
 
 function renderImg(img) {
-  // Draw the img on the canvas
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
 
@@ -280,23 +243,17 @@ function downloadCanvas(elLink) {
 }
 
 function onUploadImg() {
-  const imgDataUrl = gElCanvas.toDataURL('image/jpeg') // Gets the canvas content as an image format
-
-  // A function to be called if request succeeds
+  const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
   function onSuccess(uploadedImgUrl) {
-      // Encode the instance of certain characters in the url
       const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
       window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`)
   }
-  // Send the image to the server
   doUploadImg(imgDataUrl, onSuccess)
 }
 
 function doUploadImg(imgDataUrl, onSuccess) {
-  // Pack the image for delivery
   const formData = new FormData()
   formData.append('img', imgDataUrl)
-  // Send a post req with the image to the server
   fetch('//ca-upload.com/here/upload.php', { method: 'POST', body: formData })
       .then(res => res.text())
       .then(url => {
@@ -304,23 +261,53 @@ function doUploadImg(imgDataUrl, onSuccess) {
       })
 }
 
-// function addListeners() {
-//   addMouseListeners()
-//   addTouchListeners()
-//   window.addEventListener('resize', () => {
-//       resizeCanvas()
 
+// function drawTextBorder(ev) {
+
+//   ev.stopPropagation()
+  
+//   const { offsetX, offsetY, pageX, pageY } = ev
+//   const clickedStar = gStars.find(star => {
+//       return (
+//           offsetX >= star.x && offsetX <= star.x + BAR_WIDTH &&
+//           offsetY >= star.y
+//       )
 //   })
+
+//   if (clickedStar) {
+//       const { name, rate } = clickedStar
+//       openModal(name, rate, pageX, pageY)
+//   } else {
+//       closeModal()
+//   }
+
+
+
 // }
 
-// function addMouseListeners() {
-//   gElCanvas.addEventListener('mousemove', onMove)
-//   gElCanvas.addEventListener('mousedown', onDown)
-//   gElCanvas.addEventListener('mouseup', onUp)
-// }
+  // const star = getGMeme()
+  // if (star.selectedLineIdx === 1) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, 20, gElCanvas.width,60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
+  // if (star.selectedLineIdx === 2) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, gElCanvas.height-80,gElCanvas.width, 60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
+  // if (star.selectedLineIdx > 2) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, gElCanvas.height/2 - 30, gElCanvas.width,60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
 
-// function addTouchListeners() {
-//   gElCanvas.addEventListener('touchmove', onMove)
-//   gElCanvas.addEventListener('touchstart', onDown)
-//   gElCanvas.addEventListener('touchend', onUp)
+
+// function onLineTextChange(elLineText){
+//   const lineTextValue = elLineText.value
+//   setLineText(lineTextValue)
+//   renderMeme()
 // }

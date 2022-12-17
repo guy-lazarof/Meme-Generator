@@ -124,8 +124,6 @@ body{
   margin:20px auto;
   column-gap: 20px;
   justify-items:space-around;
-  /* justify-items:center; */
-  /* justify-content:center; */
   align-items: center;
   grid-template-areas: 
         

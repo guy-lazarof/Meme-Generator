@@ -4,39 +4,6 @@ const STORAGE_KEY = 'memeDB'
 
 let gMeme ;
 
-// {
-//   text: 'one',
-//   size: 20,
-//   align: 'left',
-//   color: 'red'
-// },
-// {
-//   text: 'two',
-//   size: 20,
-//   align: 'right',
-//   color: 'blue'
-// },
-// {
-//   text: 'three',
-//   size: 20,
-//   align: 'left',
-//   color: 'red'
-// },{
-//   text: 'four',
-//   size: 20,
-//   align: 'right',
-//   color: 'blue'
-// },{
-//   text: 'five',
-//   size: 20,
-//   align: 'center',
-//   color: 'red'
-// }
-// function imgSelect(elImgSelect) {
-//   const imgSrc = elImgSelect.
-//   gGallery.find(() =>)
-// }
-
 function getGMeme() {
   const meme = gMeme
   return meme
@@ -66,7 +33,6 @@ function getMemeImg(meme) {
 function generateMeme() {
   return {
     memeImg: getMemeImg(gMeme),
-    // memeText: gMeme.lines
   }
 
 }
@@ -86,9 +52,6 @@ function selectedLine() {
   }
   return selectedLine
 }
-
-// function selectNextLine() {
-// }
 
 function deleteSelectedLine() {
   if (gMeme.lines.length > 1) {
@@ -120,26 +83,3 @@ function textAlignCenter() {
 function textAlignRight() {
   gMeme.lines[gMeme.selectedLineIdx -1].align = 'right'
 }
-
-// getMeme(gMeme)
-// function getMeme(meme) {
-//   const memeLines = meme.lines 
-//   return memeLines
-// }
-
-
-// function _createMeme(title,price) {
-//   const meme = {
-//     selectedImgId: 5,
-//   selectedLineIdx: 0,
-//   lines: [
-//           {
-//             text: 'I sometimes eat Falafel', size: 20,
-//             align: 'left',
-//             color: 'red'
-//           }
-//   ]
-//   }
-
-//   return meme
-// }
