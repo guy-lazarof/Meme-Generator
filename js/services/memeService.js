@@ -83,7 +83,7 @@ function selectedLine() {
   console.log(selectedLine);
   gMeme.selectedLineIdx++
   console.log(selectedLine);
-  if (gMeme.selectedLineIdx === gMeme.lines.length - 1) {
+  if (gMeme.selectedLineIdx >= gMeme.lines.length - 1) {
     gMeme.selectedLineIdx = 0
   }
   return selectedLine
@@ -94,10 +94,22 @@ function selectedLine() {
 
 function deleteSelectedLine() {
   if (gMeme.lines.length > 1) {
-    gMeme.lines.splice([gMeme.selectedLineIdx - 1],1)
+    if (gMeme.selectedLineIdx === 0) {
+      gMeme.lines.splice([gMeme.selectedLineIdx - 2], 1)
+    }
+    else if (gMeme.selectedLineIdx !== 0) {
+      gMeme.lines.splice([gMeme.selectedLineIdx - 1], 1)
+    }
   }
 }
 
+function fontPlus() {
+  gMeme.lines[gMeme.selectedLineIdx].size += 4
+}
+
+function fontMinus() {
+  gMeme.lines[gMeme.selectedLineIdx].size -= 4
+}
 // getMeme(gMeme)
 // function getMeme(meme) {
 //   const memeLines = meme.lines 

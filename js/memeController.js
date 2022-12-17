@@ -96,6 +96,17 @@ function onSelectLine() {
 
 function onDeleteSelectedLine() {
   deleteSelectedLine()
+  renderMeme()
+}
+
+function onFontPlus(){
+  fontPlus()
+  renderMeme()
+}
+
+function onFontMinus(){
+  fontMinus()
+  renderMeme()
 }
 
 // function addListeners() {
