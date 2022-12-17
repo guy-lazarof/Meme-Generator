@@ -55,7 +55,6 @@ function createMeme(selectedImgId) {
       }
     ]
   }
-  console.log('gMeme:', gMeme)
 }
 
 function getMemeImg(meme) {
@@ -79,10 +78,9 @@ function setLineText(textNewValue) {
 }
 
 function selectedLine() {
+  renderMeme()
+  setTimeout(() => { drawTextRect(gMeme.selectedLineIdx),gMeme.selectedLineIdx++ },0)
   let selectedLine = gMeme.lines[gMeme.selectedLineIdx]
-  console.log(selectedLine);
-  gMeme.selectedLineIdx++
-  console.log(selectedLine);
   if (gMeme.selectedLineIdx >= gMeme.lines.length - 1) {
     gMeme.selectedLineIdx = 0
   }

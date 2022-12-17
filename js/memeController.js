@@ -34,7 +34,6 @@ function renderMeme() {
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
     drawText(meme.lines)
-    console.log('meme.lines:', meme.lines)
   }
 }
 
@@ -102,12 +101,10 @@ function setShape(shape) {
 
 function draw(ev) {
   const { offsetX, offsetY } = ev
-  console.log('offsetX, offsetY:', offsetX, offsetY)
 
   switch (gCurrShape) {
       case 'sticker1':
       drawSticker1(offsetX, offsetY)
-      console.log(gCurrShape);
           break
       case 'sticker2':
         drawSticker2(offsetX, offsetY)
@@ -120,6 +117,66 @@ function draw(ev) {
           break
   }
 }
+
+function drawTextRect(idx) {
+      gCtx.globalAlpha = 0.2;
+      gCtx.fillStyle = 'white'
+      
+      if (idx ===0) {
+        gCtx.fillRect(0, 20, gElCanvas.width, 60)
+      }else if(idx ===1){
+        gCtx.fillRect(0, gElCanvas.height-80, gElCanvas.width, 60)
+      }else if(idx > 1){
+        gCtx.fillRect(0, gElCanvas.height/2 -30, gElCanvas.width, 60)
+      }
+      gCtx.globalAlpha = 1;
+  
+
+}
+
+// function drawTextBorder(ev) {
+
+//   ev.stopPropagation()
+  
+//   const { offsetX, offsetY, pageX, pageY } = ev
+//   const clickedStar = gStars.find(star => {
+//       return (
+//           offsetX >= star.x && offsetX <= star.x + BAR_WIDTH &&
+//           offsetY >= star.y
+//       )
+//   })
+
+//   if (clickedStar) {
+//       const { name, rate } = clickedStar
+//       openModal(name, rate, pageX, pageY)
+//   } else {
+//       closeModal()
+//   }
+
+
+
+// }
+
+  // const star = getGMeme()
+  // if (star.selectedLineIdx === 1) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, 20, gElCanvas.width,60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
+  // if (star.selectedLineIdx === 2) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, gElCanvas.height-80,gElCanvas.width, 60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
+  // if (star.selectedLineIdx > 2) {
+  //   gCtx.globalAlpha = 0.4;
+  //   gCtx.fillStyle = 'white'
+  //   gCtx.fillRect(0, gElCanvas.height/2 - 30, gElCanvas.width,60 )
+  //   gCtx.globalAlpha = 1.0;
+  // }
+
 
 // function onLineTextChange(elLineText){
 //   const lineTextValue = elLineText.value
@@ -148,8 +205,6 @@ function onAddLine() {
 
 function onSelectLine() {
   let line = selectedLine()
-  // selectNextLine()
-  console.log(line);
 }
 
 function onDeleteSelectedLine() {
@@ -241,12 +296,10 @@ function doUploadImg(imgDataUrl, onSuccess) {
   // Pack the image for delivery
   const formData = new FormData()
   formData.append('img', imgDataUrl)
-  console.log('formData:', formData)
   // Send a post req with the image to the server
   fetch('//ca-upload.com/here/upload.php', { method: 'POST', body: formData })
       .then(res => res.text())
       .then(url => {
-          console.log('url:', url)
           onSuccess(url)
       })
 }
@@ -261,7 +314,6 @@ function doUploadImg(imgDataUrl, onSuccess) {
 // }
 
 // function addMouseListeners() {
-//   console.log('test');
 //   gElCanvas.addEventListener('mousemove', onMove)
 //   gElCanvas.addEventListener('mousedown', onDown)
 //   gElCanvas.addEventListener('mouseup', onUp)
@@ -271,5 +323,4 @@ function doUploadImg(imgDataUrl, onSuccess) {
 //   gElCanvas.addEventListener('touchmove', onMove)
 //   gElCanvas.addEventListener('touchstart', onDown)
 //   gElCanvas.addEventListener('touchend', onUp)
-//   console.log('test');
 // }
