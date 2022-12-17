@@ -55,7 +55,6 @@ body{
 .search-container{
   display: flex;
   flex-direction: row;
-  /* gap: 10px; */
 }
 
 .search-input{
@@ -90,7 +89,6 @@ body{
   border-radius: 10px;
 margin-left: 60px;
 margin-top: 5px;
-  /* justify-self: start; */
 }
 
 .file-upload > input{
@@ -144,9 +142,9 @@ margin-top: 5px;
         "meme      line-editor"
         "meme      font-setting"
         "meme      align-setting"
-        "meme      stickers"
-        "meme      media"
-        "meme      file-upload";
+        "meme      stickers1"
+        "meme      stickers2"
+        "meme       media";
 }
 
 .canvas-container {
@@ -175,13 +173,11 @@ canvas {
 }
 
 .upload-img{
-  /* height: 35px; */
   margin-right: 5px;
 }
 
 .download > img{
 border-radius: 5px;
-/* height: 10px; */
 }
 
 .sticker{
@@ -213,8 +209,12 @@ border-radius: 5px;
   grid-area:align-setting ;
 }
 
-.stickers{
-  grid-area:stickers ;
+.stickers1{
+  grid-area:stickers1 ;
+}
+
+.stickers2{
+  grid-area:stickers2 ;
 }
 
 .media{
@@ -224,12 +224,6 @@ border-radius: 5px;
 .file-upload{
   grid-area:file-upload ;
 }
-/* .file-upload > img{
-  height: 40px;
-  position: absolute;
-
-  z-index: 1;
-} */
 
 @media (max-width: 670px){
   .logo img{
@@ -251,9 +245,9 @@ border-radius: 5px;
         "line-editor"
         "font-setting"
         "align-setting"
-        "stickers"
-        "media"
-        "file-upload";
+        "stickers1"
+        "stickers2"
+        "media";
         
   }
 

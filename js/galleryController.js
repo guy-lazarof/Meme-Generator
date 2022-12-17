@@ -24,6 +24,7 @@ function onKeyUpSearch() {
       document.querySelector('.search-input').value = elSearchStr
   }, 500);
 }
+
 function changeSearchInputIcon() {
   const elContent = document.querySelector('.search-input')
   const elSearchIcon = document.querySelector('.search-button')
@@ -31,7 +32,6 @@ function changeSearchInputIcon() {
     elSearchIcon.innerText = '✖️'
   }
 }
-
 
 function onDeleteSearchBarContent() {
   const elContent = document.querySelector('.search-input')

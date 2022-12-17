@@ -14,49 +14,16 @@ function onInitMemeController() {
   renderCanvas()
 }
 
-// function addListeners() {
-//   addMouseListeners()
-//   addTouchListeners()
-// }
-
-// function addMouseListeners() {
-//   gElCanvas.addEventListener('mousemove', onMove)
-//   gElCanvas.addEventListener('mousedown', onDown)
-//   gElCanvas.addEventListener('mouseup', onUp)
-// }
-
-// function addTouchListeners() {
-//   gElCanvas.addEventListener('touchmove', onMove)
-//   gElCanvas.addEventListener('touchstart', onDown)
-//   gElCanvas.addEventListener('touchend', onUp)
-// }
-
-// function onDown(ev) {
-//   // Get the ev pos from mouse or touch
-//   const lines = getGMeme().lines
-//   const pos = getEvPos(ev)
-//   if () return
-
-//   setCircleDrag(true)
-//   //Save the pos we start from
-//   gStartPos = pos
-//   document.body.style.cursor = 'grabbing'
-// }
 
 function getEvPos(ev) {
-  // Gets the offset pos , the default pos
   let pos = {
       x: ev.offsetX,
       y: ev.offsetY,
   }
-  // Check if its a touch ev
   if (TOUCH_EVS.includes(ev.type)) {
       console.log('ev:', ev)
-      //soo we will not trigger the mouse ev
-      ev.preventDefault()
-      //Gets the first touch point
-      ev = ev.changedTouches[0]
-      //Calc the right pos according to the touch screen
+      ev.preventDefault()     
+      ev = ev.changedTouches[0]      
       pos = {
           x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
           y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
@@ -64,8 +31,6 @@ function getEvPos(ev) {
   }
   return pos
 }
-
-// isLineRectClicked(clickedPos)
 
 function resizeCanvas() {
   const elContainer = document.querySelector('.canvas-container')
@@ -139,7 +104,7 @@ function drawSticker1(offsetX,offsetY) {
   const elImg = new Image()
   elImg.src = 'img/stickers/sticker1.jpg'
   elImg.onload = () => {
-      gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+      gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
 }
 
@@ -147,7 +112,7 @@ function drawSticker2(offsetX,offsetY) {
   const elImg = new Image()
   elImg.src = 'img/stickers/sticker2.jpg'
   elImg.onload = () => {
-    gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+    gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
 }
 
@@ -155,7 +120,7 @@ function drawSticker3(offsetX,offsetY) {
   const elImg = new Image()
   elImg.src = 'img/stickers/sticker3.jpg'
   elImg.onload = () => {
-    gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+    gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
 }
 
@@ -163,7 +128,23 @@ function drawSticker4(offsetX,offsetY) {
   const elImg = new Image()
   elImg.src = 'img/stickers/sticker4.jpg'
   elImg.onload = () => {
-      gCtx.drawImage(elImg,offsetX, offsetY,50,50)
+      gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
+  }
+}
+
+function drawSticker5(offsetX,offsetY) {
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker5.jpg'
+  elImg.onload = () => {
+      gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
+  }
+}
+
+function drawSticker6(offsetX,offsetY) {
+  const elImg = new Image()
+  elImg.src = 'img/stickers/sticker6.jpg'
+  elImg.onload = () => {
+      gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
 }
 
@@ -186,6 +167,12 @@ function draw(ev) {
           break
       case 'sticker4':
         drawSticker4(offsetX, offsetY)
+      break
+      case 'sticker5':
+        drawSticker5(offsetX, offsetY)
+      break
+      case 'sticker6':
+        drawSticker6(offsetX, offsetY)
           break
   }
 }
@@ -246,6 +233,11 @@ function onTextAlignRight() {
 
 function onImgInput(ev) {
   loadImageFromInput(ev, renderImg)
+  toggleImgGallerySectionDisplay()
+  toggleMemeEditorSectionDisplay()
+  createMeme(getRandomIntInclusive(20, 80))
+  resizeCanvas()
+  renderMeme()
 }
 
 function loadImageFromInput(ev, onImageReady) {
@@ -253,17 +245,14 @@ function loadImageFromInput(ev, onImageReady) {
   reader.onload = (event) => {
       let img = new Image()
       img.src = event.target.result
-      img.onload = () => onImageReady(img)
+    img.onload = () => onImageReady(img)
   }
-
   reader.readAsDataURL(ev.target.files[0])
-  
 }
 
 function renderImg(img) {
   gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
 }
-
 
 function downloadCanvas(elLink) {
   const data = gElCanvas.toDataURL()
@@ -338,4 +327,33 @@ function doUploadImg(imgDataUrl, onSuccess) {
 //   const lineTextValue = elLineText.value
 //   setLineText(lineTextValue)
 //   renderMeme()
+// }
+
+// function addListeners() {
+//   addMouseListeners()
+//   addTouchListeners()
+// }
+
+// function addMouseListeners() {
+//   gElCanvas.addEventListener('mousemove', onMove)
+//   gElCanvas.addEventListener('mousedown', onDown)
+//   gElCanvas.addEventListener('mouseup', onUp)
+// }
+
+// function addTouchListeners() {
+//   gElCanvas.addEventListener('touchmove', onMove)
+//   gElCanvas.addEventListener('touchstart', onDown)
+//   gElCanvas.addEventListener('touchend', onUp)
+// }
+
+// function onDown(ev) {
+//   // Get the ev pos from mouse or touch
+//   const lines = getGMeme().lines
+//   const pos = getEvPos(ev)
+//   if () return
+
+//   setCircleDrag(true)
+//   //Save the pos we start from
+//   gStartPos = pos
+//   document.body.style.cursor = 'grabbing'
 // }
