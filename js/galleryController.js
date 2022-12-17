@@ -18,26 +18,26 @@ function toggleImgGallerySectionDisplay() {
 function onKeyUpSearch() {
   changeSearchInputIcon()
   setTimeout(() => {
-    const searchStr = document.querySelector('.search-input').value
-      setGalleryFilter(searchStr.toLowerCase())
+    const elSearchStr = document.querySelector('.search-input').value
+      setGalleryFilter(elSearchStr.toLowerCase())
       renderGallery()
-      document.querySelector('.search-input').value = searchStr
+      document.querySelector('.search-input').value = elSearchStr
   }, 500);
 }
 function changeSearchInputIcon() {
-  const content = document.querySelector('.search-input')
-  const searchIcon = document.querySelector('.search-button')
-  if (content.value !== '') {
-    searchIcon.innerText = '✖️'
+  const elContent = document.querySelector('.search-input')
+  const elSearchIcon = document.querySelector('.search-button')
+  if (elContent.value !== '') {
+    elSearchIcon.innerText = '✖️'
   }
 }
 
 
 function onDeleteSearchBarContent() {
-  const content = document.querySelector('.search-input')
-  const searchIcon = document.querySelector('.search-button')
-  content.value = ''
-  searchIcon.innerText = '🔎'
+  const elContent = document.querySelector('.search-input')
+  const elSearchIcon = document.querySelector('.search-button')
+  elContent.value = ''
+  elSearchIcon.innerText = '🔎'
   setGalleryFilter('')
   renderGallery()
 }

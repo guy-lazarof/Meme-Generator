@@ -73,7 +73,7 @@ function generateMeme() {
 }
 
 function setLineText(textNewValue) {
-  let line = gMeme.lines[gMeme.selectedLineIdx]
+  let line = gMeme.lines[gMeme.lines.length - 2]
   line.text = textNewValue
   return line
 }
