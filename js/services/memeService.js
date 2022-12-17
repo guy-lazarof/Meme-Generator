@@ -102,23 +102,23 @@ function deleteSelectedLine() {
 }
 
 function fontPlus() {
-  gMeme.lines[gMeme.selectedLineIdx].size += 4
+  gMeme.lines[gMeme.selectedLineIdx -1].size += 4
 }
 
 function fontMinus() {
-  gMeme.lines[gMeme.selectedLineIdx].size -= 4
+  gMeme.lines[gMeme.selectedLineIdx -1].size -= 4
 }
 
 function textAlignLeft() {
-  gMeme.lines[gMeme.selectedLineIdx].align = 'left'
+  gMeme.lines[gMeme.selectedLineIdx -1].align = 'left'
 }
 
 function textAlignCenter() {
-  gMeme.lines[gMeme.selectedLineIdx].align = 'center'
+  gMeme.lines[gMeme.selectedLineIdx -1].align = 'center'
 }
 
 function textAlignRight() {
-  gMeme.lines[gMeme.selectedLineIdx].align = 'right'
+  gMeme.lines[gMeme.selectedLineIdx -1].align = 'right'
 }
 
 // getMeme(gMeme)
