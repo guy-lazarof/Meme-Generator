@@ -2,49 +2,60 @@
 
 const STORAGE_KEY = 'memeDB'
 
-var gMeme= {
-  selectedImgId: 5,
-  selectedLineIdx: 0,
-  lines: [
-        {
-          text: 'one',
-          size: 20,
-          align: 'left',
-          color: 'red'
-        },
-        {
-          text: 'two',
-          size: 20,
-          align: 'right',
-          color: 'blue'
-        },
-        {
-          text: 'three',
-          size: 20,
-          align: 'left',
-          color: 'red'
-        },{
-          text: 'four',
-          size: 20,
-          align: 'right',
-          color: 'blue'
-        },{
-          text: 'five',
-          size: 20,
-          align: 'center',
-          color: 'red'
-        }
-          ]
-}
+let gMeme ;
 
-
+// {
+//   text: 'one',
+//   size: 20,
+//   align: 'left',
+//   color: 'red'
+// },
+// {
+//   text: 'two',
+//   size: 20,
+//   align: 'right',
+//   color: 'blue'
+// },
+// {
+//   text: 'three',
+//   size: 20,
+//   align: 'left',
+//   color: 'red'
+// },{
+//   text: 'four',
+//   size: 20,
+//   align: 'right',
+//   color: 'blue'
+// },{
+//   text: 'five',
+//   size: 20,
+//   align: 'center',
+//   color: 'red'
+// }
 // function imgSelect(elImgSelect) {
 //   const imgSrc = elImgSelect.
 //   gGallery.find(() =>)
 // }
 
-function setMemeImg(imgSelectId) {
-  gMeme.selectedImgId = imgSelectId
+function getGMeme() {
+  const meme = gMeme
+  return meme
+}
+
+function createMeme(selectedImgId) {
+  gMeme = {
+    selectedImgId,
+    selectedLineIdx: 0,
+    lines: [
+      {
+        text: '',
+        size: 20,
+        align: 'center',
+        color: 'white'
+      }
+    ]
+  }
+  console.log('gMeme:', gMeme)
 }
 
 function getMemeImg(meme) {
@@ -56,7 +67,7 @@ function getMemeImg(meme) {
 function generateMeme() {
   return {
     memeImg: getMemeImg(gMeme),
-    memeText: gMeme.lines
+    // memeText: gMeme.lines
   }
 
 }

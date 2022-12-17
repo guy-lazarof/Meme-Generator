@@ -25,13 +25,14 @@ function renderCanvas() {
 }
 
 function renderMeme() {
-  const meme = generateMeme()
+  const meme = getGMeme()
+  const memeImg = getMemeImg(meme)
   const elImg = new Image()
   
-  elImg.src = meme.memeImg.url
+  elImg.src = memeImg.url
   elImg.onload = () => {
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-    drawText(meme.memeText)
+    drawText(meme.lines)
   }
 }
 
@@ -70,6 +71,12 @@ function onLineTextChange(elLineText){
 function toggleMemeEditorSectionDisplay() {
   const elMemeEditorSection = document.querySelector('.meme-editor')
   elMemeEditorSection.hidden === true ? elMemeEditorSection.hidden = false : elMemeEditorSection.hidden = true
+}
+
+function onAddLine() {
+  const lineTextValue = document.querySelector('.text-editor').value
+  setLineText(lineTextValue)
+  renderMeme()
 }
 
 // function addListeners() {

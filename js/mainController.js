@@ -18,11 +18,9 @@ function onGalleryBtn() {
 
 function onImgSelect(elImgSelect) {
   const imgSelectId = elImgSelect.dataset.id
-  // document.querySelector('.meme-editor').hidden = false
-  // document.querySelector('.img-gallery').hidden = true
   toggleImgGallerySectionDisplay()
   toggleMemeEditorSectionDisplay()
+  createMeme(imgSelectId)
   resizeCanvas()
-  setMemeImg(imgSelectId)
   renderMeme()
 }
