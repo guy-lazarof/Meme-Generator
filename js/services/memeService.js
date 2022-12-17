@@ -45,7 +45,7 @@ function getGMeme() {
 function createMeme(selectedImgId) {
   gMeme = {
     selectedImgId,
-    selectedLineIdx: 0,
+    selectedLineIdx:0,
     lines: [
       {
         text: '',
@@ -77,6 +77,27 @@ function setLineText(textNewValue) {
   line.text = textNewValue
   return line
 }
+
+function selectedLine() {
+  let selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+  console.log(selectedLine);
+  gMeme.selectedLineIdx++
+  console.log(selectedLine);
+  if (gMeme.selectedLineIdx === gMeme.lines.length - 1) {
+    gMeme.selectedLineIdx = 0
+  }
+  return selectedLine
+}
+
+// function selectNextLine() {
+// }
+
+function deleteSelectedLine() {
+  if (gMeme.lines.length > 1) {
+    gMeme.lines.splice([gMeme.selectedLineIdx - 1],1)
+  }
+}
+
 // getMeme(gMeme)
 // function getMeme(meme) {
 //   const memeLines = meme.lines 

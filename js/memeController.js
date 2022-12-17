@@ -88,6 +88,16 @@ function onAddLine() {
   elLineText.value = ''
 }
 
+function onSelectLine() {
+  let line = selectedLine()
+  // selectNextLine()
+  console.log(line);
+}
+
+function onDeleteSelectedLine() {
+  deleteSelectedLine()
+}
+
 // function addListeners() {
 //   addMouseListeners()
 //   addTouchListeners()

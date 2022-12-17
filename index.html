@@ -30,32 +30,29 @@
   
   
   <section class='meme-editor' hidden>
-    <button onclick="renderMeme()">renderMeme</button>
-    <label for="text-change">add line</label>
-    <input type="text" id="text-change" placeholder='write your line...' onkeyup="onLineTextChange(this)">
     <div class='grid-meme-container'>
     <div class='canvas-container'>
       <canvas id="my-canvas" height="" width="" onclick="draw(event)"></canvas>
     </div>
     <!-- <div class='remote-container'> -->
-        <input type="text" class='text-editor grid-row' placeholder='Add new line :)'>
-        <div class='line-editor grid-row'>
+        <input type="text" class='text-editor' placeholder='Add new line :)'>
+        <div class='line-editor'>
           <button class='btn add-line' onclick='onAddLine()'><img src="img/memeBtns/addLine.png"></button>
-          <button class='btn delete-line'><img src="img/memeBtns/deleteLine.png"></button>
-        <button class='btn change-line'><img src="img/memeBtns/changeLine.png"></button>
+          <button class='btn delete-line' onclick='onDeleteSelectedLine()'><img src="img/memeBtns/deleteLine.png"></button>
+        <button class='btn change-line' onclick='onSelectLine()'><img src="img/memeBtns/changeLine.png"></button>
         </div>
-        <div class='font-setting grid-row'>
+        <div class='font-setting'>
         <button class='btn font-plus'><img src="img/memeBtns/fontPlus.png"></button>
         <button class='btn font-minus'><img src="img/memeBtns/fontMinus.png"></button>
         <button class='btn color-palette'><img src="img/memeBtns/colorPalette.png"></button>
         </div>
-        <div class='align-setting grid-row'>
+        <div class='align-setting'>
         <button class='btn text-align-left'><img src="img/memeBtns/textAlignLeft.png"></button>
         <button class='btn text-align-center'><img src="img/memeBtns/textAlignCenter.png"></button>
         <button class='btn text-align-right'><img src="img/memeBtns/textAlignRight.png"></button>
         </div>
-      <div class='stickers grid-row'></div>
-      <div class='media grid-row'>
+      <div class='stickers'></div>
+      <div class='media'>
         <button class='btn share-meme'><img src="img/memeBtns/share.png"></button>
         <button class='btn download-meme'><img src="img/memeBtns/download.png"></button>
       </div>
