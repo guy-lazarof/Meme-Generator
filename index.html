@@ -53,10 +53,13 @@
         </div>
       <div class='stickers'></div>
       <div class='media'>
-        <button class='btn share-meme'><img src="img/memeBtns/share.png"></button>
-        <button class='btn download-meme'><img src="img/memeBtns/download.png"></button>
+        <button class='btn upload-img' onclick="onUploadImg()"><img src="img/memeBtns/upload.png"></button>
+        <button class='btn download-meme' onclick='onDownloadMeme()'><a href="#" onclick="downloadCanvas(this)" download="my-img">Download</a></button>
+        
       </div>
-      <!-- </div> -->
+      <div class='file-upload'>
+        <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)"  />
+      </div>
     </div>
   </section>
 
