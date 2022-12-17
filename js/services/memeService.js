@@ -110,6 +110,19 @@ function fontPlus() {
 function fontMinus() {
   gMeme.lines[gMeme.selectedLineIdx].size -= 4
 }
+
+function textAlignLeft() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'left'
+}
+
+function textAlignCenter() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'center'
+}
+
+function textAlignRight() {
+  gMeme.lines[gMeme.selectedLineIdx].align = 'right'
+}
+
 // getMeme(gMeme)
 // function getMeme(meme) {
 //   const memeLines = meme.lines 

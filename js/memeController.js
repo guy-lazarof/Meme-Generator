@@ -109,6 +109,21 @@ function onFontMinus(){
   renderMeme()
 }
 
+function onTextAlignLeft() {
+  textAlignLeft()
+  renderMeme()
+}
+
+function onTextAlignCenter() {
+  textAlignCenter()
+  renderMeme()
+}
+
+function onTextAlignRight() {
+  textAlignRight()
+  renderMeme()
+}
+
 // function addListeners() {
 //   addMouseListeners()
 //   addTouchListeners()
