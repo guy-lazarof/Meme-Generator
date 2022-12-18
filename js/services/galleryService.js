@@ -3,13 +3,13 @@
 var gFilterBy = { memeKeywords: '', }
 var gImgs = [
   {
-    id: 0, url: 'img/1.jpg', keywords: ['funny', 'toy']
+    id: 0, url: 'img/1.jpg', keywords: ['messi']
   },{
-    id: 1, url: 'img/2.jpg', keywords: ['funny', 'toy']
+    id: 1, url: 'img/2.jpg', keywords: ['messi']
   },{
-    id: 2, url: 'img/3.jpg', keywords: ['funny', 'toy']
+    id: 2, url: 'img/3.jpg', keywords: ['messi']
   },{
-    id: 3, url: 'img/4.jpg', keywords: ['funny', 'toy']
+    id: 3, url: 'img/4.jpg', keywords: ['messi']
   },{
     id: 4, url: 'img/5.jpg', keywords: ['funny', 'man']
   }, {
