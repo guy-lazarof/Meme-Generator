@@ -67,6 +67,5 @@ function getFilterImgs() {
   return filterImgs
 }
 function setGalleryFilter(filterBy) {
-  gFilterBy.memeKeywords = filterBy
-  
+  gFilterBy.memeKeywords = filterBy 
 }

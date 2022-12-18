@@ -102,7 +102,7 @@ function drawTextRect(idx) {
 
 function drawSticker1(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker1.jpg'
+  elImg.src = 'img/stickers/sticker1.png'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -110,7 +110,7 @@ function drawSticker1(offsetX,offsetY) {
 
 function drawSticker2(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker2.jpg'
+  elImg.src = 'img/stickers/sticker2.png'
   elImg.onload = () => {
     gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -118,7 +118,7 @@ function drawSticker2(offsetX,offsetY) {
 
 function drawSticker3(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker3.jpg'
+  elImg.src = 'img/stickers/sticker3.png'
   elImg.onload = () => {
     gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -126,7 +126,7 @@ function drawSticker3(offsetX,offsetY) {
 
 function drawSticker4(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker4.jpg'
+  elImg.src = 'img/stickers/sticker4.png'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -134,7 +134,7 @@ function drawSticker4(offsetX,offsetY) {
 
 function drawSticker5(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker5.jpg'
+  elImg.src = 'img/stickers/sticker5.png'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -142,7 +142,7 @@ function drawSticker5(offsetX,offsetY) {
 
 function drawSticker6(offsetX,offsetY) {
   const elImg = new Image()
-  elImg.src = 'img/stickers/sticker6.jpg'
+  elImg.src = 'img/stickers/sticker6.png'
   elImg.onload = () => {
       gCtx.drawImage(elImg,offsetX - 25, offsetY - 25,50,50)
   }
@@ -244,7 +244,7 @@ function loadImageFromInput(ev, onImageReady) {
   const reader = new FileReader()
   reader.onload = (event) => {
       let img = new Image()
-      img.src = event.target.result
+    img.src = event.target.result
     img.onload = () => onImageReady(img)
   }
   reader.readAsDataURL(ev.target.files[0])
@@ -258,6 +258,11 @@ function downloadCanvas(elLink) {
   const data = gElCanvas.toDataURL()
   elLink.href = data
 }
+
+// function onSaveMeme() {
+//   const data = gElCanvas.toDataURL()
+//   gSavedMemes.push(data)
+// }
 
 function onUploadImg() {
   const imgDataUrl = gElCanvas.toDataURL('image/jpeg')

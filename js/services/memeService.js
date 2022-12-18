@@ -4,6 +4,8 @@ const STORAGE_KEY = 'memeDB'
 
 let gMeme ;
 
+// let gSavedMemes = []
+
 function getGMeme() {
   const meme = gMeme
   return meme
@@ -90,3 +92,11 @@ function textAlignCenter() {
 function textAlignRight() {
   gMeme.lines[gMeme.selectedLineIdx -1].align = 'right'
 }
+
+// function saveMeme(meme) {
+//   gSavedMemes.push(meme)
+// }
+
+// function getSavedMemes() {
+//   return gSavedMemes
+// } 
