@@ -62,7 +62,7 @@ function drawText(memeLines) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
     gCtx.fillStyle = memeLine.color
-    gCtx.font = `${memeLine.size + 20}px arial`;
+    gCtx.font = `${memeLine.size + 20}px impact`;
     gCtx.textAlign = memeLine.align
     gCtx.textBaseline = 'middle'
     

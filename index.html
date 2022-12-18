@@ -20,8 +20,29 @@
 
   <section class='img-gallery'>
     <div class='search-container'>
-      <input type="text" placeholder='Search meme...' class='search-input' onkeyup="onKeyUpSearch()" >
+      <input list='input-search' type="text" placeholder='Search meme...' class='search-input' onkeyup="onKeyUpSearch()" >
       <button class="search-button" onclick="onDeleteSearchBarContent()">🔎</button>
+      <datalist id="input-search">
+        <option value="funny">
+        <option value="cute">
+        <option value="dog">
+        <option value="man">
+        <option value="baby">
+        <option value="cat">
+        <option value="sleep">
+        <option value="kid">
+        <option value="science">
+        <option value="surprise">
+        <option value="listening">
+        <option value="bad">
+        <option value="obama">
+        <option value="laugh">
+        <option value="fight">
+        <option value="matrix">
+        <option value="putin">
+        <option value="bad">
+        <option value="toy">
+      </datalist>
       <div class='file-upload'>
         <label for="file-input"><img class='file-input-img' src="img/memeBtns/file-input.png"></label>
         <input id='file-input' type="file" class="file-input btn" name="image" onchange="onImgInput(event)"  />
@@ -46,9 +67,11 @@
         </div>
 
         <div class='font-setting'>
-        <button class='btn font-plus' onclick='onFontPlus()'><img src="img/memeBtns/fontPlus.png"></button>
-        <button class='btn font-minus' onclick='onFontMinus()'><img src="img/memeBtns/fontMinus.png"></button>
-        <button class='btn color-palette'><img src="img/memeBtns/colorPalette.png"></button>
+          <button class='btn font-plus' onclick='onFontPlus()'><img src="img/memeBtns/fontPlus.png"></button>
+          <button class='btn font-minus' onclick='onFontMinus()'><img src="img/memeBtns/fontMinus.png"></button>
+          <!-- <button class='btn color-palette'><img src="img/memeBtns/colorPalette.png"></button> -->
+          <label for="color-palette"><img class='color-palette' src="img/memeBtns/colorPalette.png"></label>
+          <input id='color-palette' type="color" class='input-color' oninput="changeColorFill(this)">
         </div>
 
         <div class='align-setting'>
@@ -71,7 +94,7 @@
 
       <div class='media'>
         <button class='btn upload-img' onclick="onUploadImg()"><img src="img/memeBtns/upload.png"></button>
-        <a href="#" onclick="downloadCanvas(this)" download="my-img" class='btn download'><img src="img/memeBtns/download.png"></a>
+        <a href="#" onclick="downloadCanvas(this)" download="my-img" class='download'><img src="img/memeBtns/download.png"></a>
         </button>
         
       </div>

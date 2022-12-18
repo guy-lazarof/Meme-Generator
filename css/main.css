@@ -1,10 +1,11 @@
+@import './font-face.css';
+
 * {
   box-sizing: border-box;
 }
 body{
   margin: 0;
   background-color: rgb(46, 49, 63);
-  
 }
 
 .header-container{
@@ -94,8 +95,6 @@ margin-top: 5px;
 .file-upload > input{
   display: none;
 }
-.meme-editor{
-}
 
 .img-gallery{
   background-color: rgb(79, 84, 107);
@@ -178,6 +177,8 @@ canvas {
 
 .download > img{
 border-radius: 5px;
+height: 45px;
+transform: translate(2%,9%);
 }
 
 .sticker{
@@ -203,6 +204,7 @@ border-radius: 5px;
 
 .font-setting{
   grid-area:font-setting ;
+  /* padding-top: 5px; */
 }
 
 .align-setting{
@@ -223,6 +225,18 @@ border-radius: 5px;
 
 .file-upload{
   grid-area:file-upload ;
+}
+
+.font-setting > input{
+  display: none;
+}
+
+.color-palette{
+  height: 40px;
+  width: 50px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 @media (max-width: 670px){
@@ -254,4 +268,18 @@ border-radius: 5px;
   .btn > img{
     height: 30px;
   }
+
+  .color-palette{
+    height: 35px;
+    width: 42px;
+    /* border-radius: 10px; */
+    /* margin-left: 5px; */
+    margin-top: 5px;
+    transform: translate(-8%,12%);
+  }
+
+  .download > img{
+    height: 35px;
+    }
+
 }

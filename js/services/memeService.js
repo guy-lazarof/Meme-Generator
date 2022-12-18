@@ -64,6 +64,13 @@ function deleteSelectedLine() {
   }
 }
 
+function changeColorFill(elColorInput){
+  const color = elColorInput.value
+  gMeme.lines[gMeme.selectedLineIdx - 1].color = color
+  console.log('gMeme:',gMeme )
+  renderMeme()
+}
+
 function fontPlus() {
   gMeme.lines[gMeme.selectedLineIdx -1].size += 4
 }
